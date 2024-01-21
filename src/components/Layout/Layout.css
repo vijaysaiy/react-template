@@ -1,0 +1,16 @@
+.layout-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.layout-side-content {
+  width: 100%;
+}
+
+.layout-main-content {
+  padding: 24px;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
