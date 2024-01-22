@@ -4,7 +4,8 @@ import {
   Icon,
   VerticalNav,
 } from "censa_front_end_library";
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/censa_logo.svg";
 const data = [
   {
@@ -12,46 +13,39 @@ const data = [
     label: "Header",
     icon: "home",
     group: "General",
-    subMenu: [
-      {
-        name: "profile.personal",
-        label: "Personal",
-        count: 5,
-      },
-      {
-        name: "profile.are_team",
-        label: "Care Team",
-        count: 10,
-      },
-      {
-        name: "profile.goals",
-        label: "Goals",
-        count: 5,
-      },
-      {
-        name: "profile.care_plans",
-        label: "Care Plans",
-        count: 5,
-      },
-    ],
+    path: "/sample",
   },
   {
     name: "table",
     label: "Table",
     icon: "home",
     group: "General",
+    subMenu: [
+      {
+        name: "table.with_checkbox",
+        label: "With Checkbox",
+        path: "/table-checkbox",
+      },
+      {
+        name: "table.paginated",
+        label: "With Pagination",
+        path: "/table-pagination",
+      },
+    ],
   },
   {
     name: "input",
     label: "Input",
     icon: "home",
     group: "General",
+    path: "/input",
   },
   {
     name: "file_uploader",
     label: "File Uploader",
     icon: "home",
     group: "General",
+    path: "/file-uploader",
   },
   {
     name: "phone_input",
@@ -100,14 +94,18 @@ const data = [
     label: "Drop down",
     icon: "home",
     group: "Primary",
+    path: "dropdown",
   },
 ];
-const Sidebar = ({ setActiveScreen, activeScreen }) => {
-  const [expanded, setExpanded] = React.useState(true);
 
-  const onClickHandler = (menu) => {
-    console.log("menu-clicked: ", menu);
+const Sidebar = () => {
+  const [expanded, setExpanded] = useState(true);
+  const [activeScreen, setActiveScreen] = useState(data[1]);
+  const navigate = useNavigate();
+
+  const handleNavigation = (menu) => {
     setActiveScreen(menu);
+    navigate(menu.path);
   };
 
   return (
@@ -127,7 +125,7 @@ const Sidebar = ({ setActiveScreen, activeScreen }) => {
           menus={data}
           active={activeScreen}
           expanded={expanded}
-          onClick={onClickHandler}
+          onClick={handleNavigation}
         />
       </Collapsible>
     </div>

@@ -13,7 +13,12 @@ const AppRouter = () => {
     <div>
       <Router history={history}>
         <Routes>
+          {/* public routes */}
           <Route exact path="/" element={<LoginPage />} />
+          {/* add more public routes if needed */}
+          {/* end of public routes */}
+
+          {/* Protected Routes */}
           <Route element={<Layout />}>
             {/*  outlet to allow only protected routes*/}
             <Route element={<ProtectedRoutes />}>
