@@ -3,7 +3,7 @@ import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import Header from "../Header/Header";
 import ProtectedRoutes from "../ProtectedRoutes/ProtectedRoutes";
 import Sidebar from "../Sidebar/Sidebar";
-import "./Layout.css";
+import "./Layout.scss";
 const Layout = () => {
   return (
     <div className="layout-container">

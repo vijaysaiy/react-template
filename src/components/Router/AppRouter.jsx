@@ -4,8 +4,8 @@ import { history } from "../../utils/history";
 import Layout from "../Layout/Layout";
 import LoginPage from "../LoginPage/LoginPage";
 import NoRouteFound from "../NoRouteFound/NoRouteFound";
+import Orders from "../Orders";
 import ProtectedRoutes from "../ProtectedRoutes/ProtectedRoutes";
-import SamplePage from "../SamplePage/SamplePage";
 import UnauthorisedRoute from "../UnauthorisedRoute/UnauthorisedRoute";
 
 const AppRouter = () => {
@@ -22,7 +22,9 @@ const AppRouter = () => {
           <Route element={<Layout />}>
             {/*  outlet to allow only protected routes*/}
             <Route element={<ProtectedRoutes />}>
-              <Route exact path="/sample" element={<SamplePage />} />
+              <Route exact path="/orders" element={<Orders />}>
+                <Route exact path="/orders/create" element={<Orders />} />
+              </Route>
               {/* add more routes */}
             </Route>
             <Route exact path="/unauthorised" element={<UnauthorisedRoute />} />

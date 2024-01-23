@@ -1,0 +1,35 @@
+.flex {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-align-center {
+  align-items: center;
+}
+.flex-align-start {
+  align-items: start;
+}
+.flex-align-end {
+  align-items: end;
+}
+.flex-justify-center {
+  justify-content: center;
+}
+.flex-justify-around {
+  justify-content: space-around;
+}
+.flex-justify-between {
+  justify-content: space-between;
+}
+.flex-justify-evenlu {
+  justify-content: space-evenly;
+}
+.card-container {
+  border: 1px solid #e7e7e8;
+  border-radius: 16px;
+}
+
